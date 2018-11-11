@@ -82,4 +82,31 @@ ${string/%substring/replacement}
 
 > If \$substring matches **back end** of \$string, substitute \$replacement for \$substring.
 
+## Redirection
+
+### stderr --> file
+
+```bash
+grep da * 2> grep-errors.txt
+```
+
+### stderr --> stdout
+
+```bash
+grep * 2>&1
+```
+
+### stdout + stderr --> file
+
+```bash
+rm -f $(find / -name core) &> /dev/null
+```
+
+
+## Find in upper directory excluding **prune_me** sub-directory
+
+```bash
+find "upperdirectory" -not \( -path "upperdirectory/prune_me" -prune \) -exec bash -c 'echo "$0"' {} \;
+```
+
 

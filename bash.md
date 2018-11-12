@@ -109,4 +109,74 @@ rm -f $(find / -name core) &> /dev/null
 find "upperdirectory" -not \( -path "upperdirectory/prune_me" -prune \) -exec bash -c 'echo "$0"' {} \;
 ```
 
+## Bash perfs
+
+```bash
+SECONDS=0
+some_code_here
+t1=$SECONDS
+suspected_very_slow_code_here
+t2=$SECONDS
+duration=$(( $t2 - $t1 ))
+```
+
+## Permissions
+
+### simple
+
+- directories: a+x
+- files: a+r
+
+```bash
+chmod -R a+rX *
+```
+
+where **X** stand for :
+
+```bash
+$ man chmod
+execute/search only if the file is a directory or already has execute permission for some user (X)
+```
+
+### with fine grained filter
+
+- directories "755 (drwxr-xr-x)"
+- files "644 (-rw-r--r--)"
+
+```bash
+chmod 755 $(find /path/to/base/dir -type d)
+chmod 644 $(find /path/to/base/dir -type f)
+```
+
+## Path to the running script
+
+### Note: If sourcing a script, $0 variable contains -bash
+
+```bash
+#!/bin/bash
+BASEDIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+```
+
+### How can I check bash syntax
+
+```bash
+[  +++> Shell Check <+++ ](http://hackage.haskell.org/package/ShellCheck)
+```
+
+### I have random errors running shell scripts
+
+Check the system default shell!
+
+```bash
+$ ls -l /bin/sh
+lrwxrwxrwx 1 root root 4 Jan 24  2017 /bin/sh -> dash
+```
+
+The default shell might be **dash** as in nowadays distros.
+You may expect bash instead ...
+To change to bash on debian and similar distro:
+
+```bash
+dpkg-reconfigure dash --> Use dash as default : No
+```
 

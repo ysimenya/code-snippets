@@ -159,9 +159,7 @@ BASEDIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
 
 ### How can I check bash syntax
 
-```bash
-[  +++> Shell Check <+++ ](http://hackage.haskell.org/package/ShellCheck)
-```
++++ > [Shell Check](http://hackage.haskell.org/package/ShellCheck) < +++
 
 ### I have random errors running shell scripts
 

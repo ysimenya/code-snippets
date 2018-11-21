@@ -180,3 +180,115 @@ To change to bash on debian and similar distro:
 dpkg-reconfigure dash --> Use dash as default : No
 ```
 
+
+## Misc
+
+
+
+Re-execute last command
+
+
+
+```bash
+
+ !!
+
+```
+
+
+
+Execute number 3 command from history
+
+
+
+```bash
+
+ ! 3
+
+```
+
+
+
+Save last command to txt
+
+
+
+```bash
+
+ echo !! > txt
+
+```
+
+
+
+Kill to the end of the line and yank back
+
+
+
+```bash
+
+ find /etc/apache2/mods-available/ -mtime +1 | xargs ls -alh | awk '{print $9}'
+
+ --> Cursor on 1st pipe then 
+
+    Ctrl-k : find /etc/apache2/mods-available/ -mtime +1
+
+    Ctrl-y : | xargs ls -alh | awk '{print $9}'
+
+    Ctrl-u : suppresses words before cursor
+
+```
+
+
+
+tail alternative
+
+
+
+```bash
+
+ less +F /var/log/syslog
+
+ Ctrl-c : detach and navigate in file
+
+ Shift-F : re-attach
+
+ q : exit
+
+```
+
+
+
+Jump into temporary shell editor
+
+
+
+```bash
+
+ $ for x in $LIST; do --> Ctrl-x-e
+
+```
+
+
+
+Paste arguments of last successful command
+
+
+
+```bash
+
+ Alt + .
+
+```
+
+
+
+What to do when terminal is misbehaving
+
+
+
+```bash
+
+ $ reset
+
+```

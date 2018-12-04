@@ -178,14 +178,29 @@ To change to bash on debian and similar distro:
 dpkg-reconfigure dash --> Use dash as default : No
 ```
 
+## System
+
+### Mem
+
+```bash
+free -h | awk '/^Mem:/ {print $3 "/" $2}'
+```
+
+### Most memory intensive processes
+
+```bash
+ps axh -o cmd:80,%mem --sort=-%mem | head
+```
+
+### Most CPU intensive processes
+
+```bash
+ps axh -o cmd:80,%cpu --sort=-%cpu | head
+```
 
 ## Misc
 
-
-
 Re-execute last command
-
-
 
 ```bash
 
@@ -193,11 +208,7 @@ Re-execute last command
 
 ```
 
-
-
 Execute number 3 command from history
-
-
 
 ```bash
 
@@ -205,11 +216,7 @@ Execute number 3 command from history
 
 ```
 
-
-
 Save last command to txt
-
-
 
 ```bash
 
@@ -217,11 +224,7 @@ Save last command to txt
 
 ```
 
-
-
 Kill to the end of the line and yank back
-
-
 
 ```bash
 
@@ -237,11 +240,7 @@ Kill to the end of the line and yank back
 
 ```
 
-
-
 tail alternative
-
-
 
 ```bash
 
@@ -255,23 +254,15 @@ tail alternative
 
 ```
 
-
-
 Jump into temporary shell editor
-
-
 
 ```bash
 
- $ for x in $LIST; do --> Ctrl-x-e
+ for x in $LIST; do --> Ctrl-x-e
 
 ```
 
-
-
 Paste arguments of last successful command
-
-
 
 ```bash
 
@@ -279,14 +270,10 @@ Paste arguments of last successful command
 
 ```
 
-
-
 What to do when terminal is misbehaving
-
-
 
 ```bash
 
- $ reset
+ reset
 
 ```
